@@ -5,4 +5,7 @@
         - ping
         - remove-defaults
         - upgrade-system
+        - initialize-default-apps
+        - calibre
+        - vlc
         - plank

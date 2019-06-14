@@ -1,0 +1,14 @@
+---
+- name: Initialize default desktop files
+  copy:
+    src: desktop/
+    dest: /home/aleksa/.local/share/applications/
+    mode: 0755
+    owner: aleksa
+
+- name: Initialize default desktop icons
+  copy:
+    src: icons/
+    dest: /home/aleksa/Documents/Dock/Icons/
+    mode: 0755
+    owner: aleksa

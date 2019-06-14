@@ -4,3 +4,10 @@
     name: plank
     state: latest
     update_cache: yes
+
+- name: Initialize dock items
+  copy:
+    src: items/
+    dest: /home/aleksa/.config/plank/dock1/launchers/
+    mode: 0755
+    owner: aleksa

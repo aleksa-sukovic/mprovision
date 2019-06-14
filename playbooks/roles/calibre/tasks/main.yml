@@ -1,0 +1,13 @@
+---
+- name: Install Calibre
+  pacman:
+    name: calibre
+    state: latest
+    update_cache: yes
+
+- name: Configure Calibre
+  copy:
+    src: calibre-config.py
+    dest: /home/aleksa/.config/calibre/global.py
+    owner: aleksa
+    mode: 0755
