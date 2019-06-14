@@ -1,0 +1,6 @@
+---
+- name: Install Plank dock
+  pacman:
+    name: plank
+    state: latest
+    update_cache: yes
