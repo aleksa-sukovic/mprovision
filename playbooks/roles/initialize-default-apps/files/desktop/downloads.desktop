@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Downloads
+Exec=nautilus ./Downloads
+Icon=/home/aleksa/Documents/Dock/Icons/downloads.png
+Terminal=false
+Type=Application

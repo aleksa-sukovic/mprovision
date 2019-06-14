@@ -5,9 +5,34 @@
     state: latest
     update_cache: yes
 
-- name: Initialize dock items
+- name: Initialize items
+  become: true
+  become_user: aleksa
   copy:
     src: items/
     dest: /home/aleksa/.config/plank/dock1/launchers/
     mode: 0755
     owner: aleksa
+
+- name: Initialize themes
+  become: true
+  become_user: aleksa
+  copy:
+    src: themes/
+    dest: /home/aleksa/.local/share/plank/themes/
+    owner: aleksa
+    mode: 0755
+
+- name: Copy configuration
+  become: true
+  become_user: aleksa
+  copy:
+    src: config/
+    dest: /home/aleksa/.config/plank/
+    owner: aleksa
+    mode: 0755
+
+- name: Initialize configuration
+  become: true
+  become_user: aleksa
+  script: scripts/setup-plank.sh
