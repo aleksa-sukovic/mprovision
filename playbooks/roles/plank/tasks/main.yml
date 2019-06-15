@@ -1,5 +1,5 @@
 ---
-- name: Install Plank dock
+- name: Install dock
   pacman:
     name: plank
     state: latest
