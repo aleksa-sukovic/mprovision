@@ -2,12 +2,12 @@
     - hosts: all
       become: true
       roles:
-        # - ping
-        # - remove-defaults
-        # - upgrade-system
-        # - initialize-default-apps
-        # - calibre
-        # - vlc
-        # - blender
+        - ping
+        - remove-defaults
+        - upgrade-system
+        - initialize-default-apps
+        - calibre
+        - vlc
+        - blender
         - qbittorrent
         - plank
