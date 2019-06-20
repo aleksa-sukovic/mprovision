@@ -1,0 +1,76 @@
+---
+- name: Initialize directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+    owner: aleksa
+  with_items:
+    - /home/aleksa/gnome-provisioning
+    - /home/aleksa/.themes
+    - /home/aleksa/.icons
+    - /home/aleksa/Pictures
+    - /home/aleksa/.local/share/gnome-shell/extensions/
+
+- name: Copy configuration files
+  copy:
+    src: config/
+    dest: /home/aleksa/gnome-provisioning/
+    mode: 0755
+    owner: aleksa
+
+- name: Extract themes
+  unarchive:
+    src: "{{ item }}"
+    dest: /home/aleksa/.themes/
+    mode: 0755
+    owner: aleksa
+  with_items:
+    - themes/mojave-dark-alt.tar.xz
+    - themes/mojave-dark-solid-alt.tar.xz
+    - themes/mojave-dark-solid.tar.xz
+    - themes/mojave-dark.tar.xz
+    - themes/mojave-light-alt.tar.xz
+    - themes/mojave-light-solid-alt.tar.xz
+    - themes/mojave-light-solid.tar.xz
+    - themes/mojave-light.tar.xz
+
+- name: Extract icons
+  unarchive:
+    src: "{{ item }}"
+    dest: /home/aleksa/.icons/
+    mode: 0775
+    owner: aleksa
+  with_items:
+    - icons/mojave-icons.tar.xz
+
+- name: Load desktop configuration
+  become: true
+  become_user: aleksa
+  script: scripts/setup-desktop.sh
+
+- name: Install extensions
+  become: true
+  become_user: aleksa
+  script: scripts/install-extension.sh "{{ item }}"
+  with_items:
+    - 15 # alternate-tab
+    - 779 # clipboard
+    - 16 # auto-move windows
+    - 1465 # desktop icons
+    - 2 # frippery move clock
+    - 1319 # gs connect
+    - 615 # KStatus Notifier Item
+    - 18 # native window placement
+    - 750 # open weather
+    - 708 # panel OSD
+    - 8 # places status indicator
+    - 7 # removable drive menu
+    - 19 # user themes
+    - 21 # workspace indicator
+
+- name: Load extensions configuration
+  become: true
+  become_user: aleksa
+  script: scripts/setup-extensions.sh
+  notify: Restart Gnome
