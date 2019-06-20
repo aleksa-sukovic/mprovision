@@ -37,4 +37,5 @@
         - bitwarden
         - docker
         - php-storm
+        - intellij-community
         - plank

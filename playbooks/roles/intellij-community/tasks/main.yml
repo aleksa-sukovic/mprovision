@@ -1,19 +1,13 @@
 ---
 # - name: Install
-#   aur:
-#     name: phpstorm
-#   become: true
-#   become_user: aur_builder
-
-# - name: Install PHP Storm JRE
-#   aur:
-#     name: phpstorm-jre
-#   become: true
-#   become_user: aur_builder
+#   pacman:
+#     name: intellij-idea-community-edition
+#     state: latest
+#     update_cache: yes
 
 - name: Copy desktop file
   copy:
-    src: desktop/php-storm.desktop
+    src: desktop/intellij-community.desktop
     dest: /home/aleksa/.local/share/applications/
     mode: 0755
     owner: aleksa
@@ -21,7 +15,7 @@
 
 - name: Copy dock item
   copy:
-    src: dock/php-storm.dockitem
+    src: dock/intellij-community.dockitem
     dest: /home/aleksa/.config/plank/dock1/launchers/
     mode: 0755
     owner: aleksa
@@ -29,7 +23,7 @@
 
 - name: Copy icon
   copy:
-    src: icons/php-storm.png
+    src: icons/intellij-community.png
     dest: /home/aleksa/Documents/Dock/Icons/
     mode: 0755
     owner: aleksa
@@ -37,7 +31,7 @@
 
 - name: Copy config to import manually
   copy:
-    src: config/php-storm-config.zip
+    src: config/intellij-community-config.zip
     dest: /home/aleksa/.config/jetbrains-zip-config/
     mode: 0755
     owner: aleksa
