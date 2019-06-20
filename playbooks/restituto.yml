@@ -2,15 +2,16 @@
     - hosts: all
       become: true
       roles:
-        # - ping
-        # - remove-defaults
-        # - upgrade-system
-        # - initialize-default-apps
-        # - calibre
-        # - vlc
-        # - blender
-        # - qbittorrent
-        # - plank
-        # - fira-code
-        # - gnome
+        - ping
+        - remove-defaults
+        - upgrade-system
+        - initialize-default-apps
+        - calibre
+        - vlc
+        - blender
+        - qbittorrent
+        - plank
+        - fira-code
+        - gnome
         - dotfiles
+        - terminal

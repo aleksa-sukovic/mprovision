@@ -1,0 +1,17 @@
+---
+- name: Copy config file
+  copy:
+    src: config/
+    dest: /home/aleksa/terminal-provisioning/
+    owner: aleksa
+    mode: 0755
+
+- name: Load terminal configuration
+  become: true
+  become_user: aleksa
+  script: scripts/setup-terminal.sh
+
+- name: Clean up
+  file:
+    path: /home/aleksa/terminal-provisioning/
+    state: absent
