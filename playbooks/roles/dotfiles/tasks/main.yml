@@ -1,15 +1,20 @@
 ---
 - name: Create 'Development' folder
+  become: true
+  become_user: aleksa
   file:
     path: "{{ item }}"
     state: directory
     owner: aleksa
+    group: aleksa
     mode: 0755
   with_items:
     - /home/aleksa/Development
     - /home/aleksa/Development/Source
 
 - name: Clone 'dotfiles' repository
+  become: true
+  become_user: aleksa
   git:
     repo: https://github.com/aleksa-sukovic/dotfiles
     dest: /home/aleksa/Development/Source/dotfiles/
