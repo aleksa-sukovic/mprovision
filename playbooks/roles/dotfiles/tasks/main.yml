@@ -1,0 +1,43 @@
+---
+- name: Create 'Development' folder
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: aleksa
+    mode: 0755
+  with_items:
+    - /home/aleksa/Development
+    - /home/aleksa/Development/Source
+
+- name: Clone 'dotfiles' repository
+  git:
+    repo: https://github.com/aleksa-sukovic/dotfiles
+    dest: /home/aleksa/Development/Source/dotfiles/
+    force: yes
+
+- name: Setup username
+  lineinfile:
+    path: /home/aleksa/Development/Source/dotfiles/src/local/.profile
+    regexp: '{username}'
+    line: '. "/home/aleksa/.profile_functions"'
+    backrefs: yes
+
+- name: Make soft links
+  file:
+    src: "/home/aleksa/Development/Source/dotfiles/src/local/{{ item }}"
+    dest: "/home/aleksa/{{ item }}"
+    force: yes
+    state: link
+    owner: aleksa
+    mode: 0755
+  with_items:
+    - .profile
+    - .profile_functions
+
+- name: Add dotfiles to 'bashrc'
+  lineinfile:
+    path: /home/aleksa/.bashrc
+    line: '[[ -f ~/.profile ]] && . ~/.profile'
+    state: present
+    mode: 0755
+    owner: aleksa
