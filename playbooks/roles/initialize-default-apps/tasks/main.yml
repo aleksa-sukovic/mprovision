@@ -1,14 +1,21 @@
 ---
-- name: Initialize default desktop files
+- name: Default desktop files
   copy:
     src: desktop/
     dest: /home/aleksa/.local/share/applications/
     mode: 0755
     owner: aleksa
 
-- name: Initialize default desktop icons
+- name: Default desktop icons
   copy:
     src: icons/
     dest: /home/aleksa/Documents/Dock/Icons/
     mode: 0755
     owner: aleksa
+
+- name: Create default autostart application folder
+  file:
+    path: /home/aleksa/.config/autostart/
+    state: directory
+    owner: aleksa
+    mode: 0755
