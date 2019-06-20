@@ -22,3 +22,11 @@
     owner: aleksa
     group: aleksa
     mode: 0755
+
+- name: Create AppImage application directory
+  file:
+    path: /home/aleksa/Applications
+    state: directory
+    owner: aleksa
+    group: aleksa
+    mode: 0755

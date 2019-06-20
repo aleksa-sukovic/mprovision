@@ -1,0 +1,30 @@
+---
+- name: Install
+  aur:
+    name: bitwarden-bin
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/bitwarden.desktop
+    dest: /home/aleksa/.local/share/applications/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy dock item
+  copy:
+    src: dock/bitwarden.dockitem
+    dest: /home/aleksa/.config/plank/dock1/launchers/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy icon
+  copy:
+    src: icons/bitwarden.png
+    dest: /home/aleksa/Documents/Dock/Icons/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
