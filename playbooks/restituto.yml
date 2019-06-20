@@ -6,6 +6,8 @@
         - remove-defaults
         - upgrade-system
         - initialize-default-apps
+        - yay
+        - trizen
         - calibre
         - vlc
         - blender
@@ -19,6 +21,5 @@
         - visual-studio-code
         - albert
         - telegram
-        - yay
-        - trizen
+        - viber
         - plank
