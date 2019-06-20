@@ -52,6 +52,12 @@
     src: config/locale.conf
     dest: /etc/
 
+- name: Install Gnome shell extensions connector
+  pacman:
+    name: chrome-gnome-shell
+    state: latest
+    update_cache: yes
+
 - name: Install extensions
   become: true
   become_user: aleksa
