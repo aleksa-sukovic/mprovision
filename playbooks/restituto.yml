@@ -10,7 +10,11 @@
         - vlc
         - blender
         - qbittorrent
-        - plank
         - fira-code
         - gnome
         - dotfiles
+        - ansible-aur
+        - binutils
+        - todoist
+        - visual-studio-code
+        - plank

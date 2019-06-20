@@ -1,14 +1,14 @@
 ---
 - name: Install
   aur:
-    name: todoist-linux-bin
+    name: visual-studio-code-bin
     use: makepkg
   become: true
   become_user: aur_builder
 
 - name: Copy desktop file
   copy:
-    src: desktop/todoist.desktop
+    src: desktop/visual-studio-code.desktop
     dest: /home/aleksa/.local/share/applications/
     mode: 0755
     owner: aleksa
@@ -16,16 +16,8 @@
 
 - name: Copy dock item
   copy:
-    src: dock/todoist.dockitem
+    src: dock/visual-studio-code.dockitem
     dest: /home/aleksa/.config/plank/dock1/launchers/
-    mode: 0755
-    owner: aleksa
-    group: aleksa
-
-- name: Copy icon
-  copy:
-    src: icons/todoist.png
-    dest: /home/aleksa/Documents/Dock/Icons/
     mode: 0755
     owner: aleksa
     group: aleksa
