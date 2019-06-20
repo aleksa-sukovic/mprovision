@@ -1,13 +1,14 @@
 ---
 - name: Install
   aur:
-    name: whatsie
+    name: slack-desktop
+    use: makepkg
   become: true
   become_user: aur_builder
 
 - name: Copy desktop file
   copy:
-    src: desktop/whatsie.desktop
+    src: desktop/slack.desktop
     dest: /home/aleksa/.local/share/applications/
     mode: 0755
     owner: aleksa
@@ -15,7 +16,7 @@
 
 - name: Copy dock item
   copy:
-    src: dock/whatsie.dockitem
+    src: dock/slack.dockitem
     dest: /home/aleksa/.config/plank/dock1/launchers/
     mode: 0755
     owner: aleksa
