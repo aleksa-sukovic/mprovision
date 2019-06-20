@@ -35,5 +35,6 @@
         - nativefier
         - notion
         - bitwarden
-        - plank
         - docker
+        - php-storm
+        - plank

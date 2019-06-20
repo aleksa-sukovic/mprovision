@@ -1,0 +1,36 @@
+---
+- name: Install
+  aur:
+    name: phpstorm
+  become: true
+  become_user: aur_builder
+
+- name: Install PHP Storm JRE
+  aur:
+    name: phpstorm-jre
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/php-storm.desktop
+    dest: /home/aleksa/.local/share/applications/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy dock item
+  copy:
+    src: dock/php-storm.dockitem
+    dest: /home/aleksa/.config/plank/dock1/launchers/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy config to import manually
+  copy:
+    src: config/php-storm-config.zip
+    dest: /home/aleksa/.config/jetbrains-zip-config/
+    mode: 0755
+    owner: aleksa
+    group: aleksa

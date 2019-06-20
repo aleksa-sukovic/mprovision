@@ -2,7 +2,7 @@
 - name: Install
   pacman:
     name: git
-    state: present
+    state: latest
     update_cache: yes
 
 - name: Configure username
