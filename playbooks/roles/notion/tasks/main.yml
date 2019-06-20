@@ -1,0 +1,30 @@
+---
+- name: Install
+  aur:
+    name: notion-app
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/notion.desktop
+    dest: /home/aleksa/.local/share/applications/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy dock item
+  copy:
+    src: dock/notion.dockitem
+    dest: /home/aleksa/.config/plank/dock1/launchers/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
+
+- name: Copy icon
+  copy:
+    src: icons/notion.png
+    dest: /home/aleksa/Documents/Dock/Icons/
+    mode: 0755
+    owner: aleksa
+    group: aleksa
