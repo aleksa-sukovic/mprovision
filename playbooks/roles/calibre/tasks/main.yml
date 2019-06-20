@@ -5,6 +5,13 @@
     state: latest
     update_cache: yes
 
+- name: Create config directory
+  file:
+    path: /home/aleksa/.config/calibre
+    state: directory
+    owner: aleksa
+    mode: 0755
+
 - name: Configure Calibre
   copy:
     src: calibre-config.py
