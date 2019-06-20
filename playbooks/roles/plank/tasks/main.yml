@@ -36,3 +36,8 @@
   become: true
   become_user: aleksa
   script: scripts/setup-plank.sh
+
+- name: Add to autostart
+  become: true
+  become_user: aleksa
+  command: cp /usr/share/applications/plank.desktop /home/aleksa/.config/autostart/
