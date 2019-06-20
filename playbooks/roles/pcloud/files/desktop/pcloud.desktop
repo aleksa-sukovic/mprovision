@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=pCloud
+Comment=pCloud Drive Client built using electron and node.js. Distributed with AppImage.
+Exec=pcloud
+Terminal=false
+Type=Application
+Icon=/home/aleksa/Documents/Dock/Icons/pcloud.png
+X-AppImage-Version=1.2.3
+X-AppImage-BuildId=303ac340-aa16-11a8-0a32-4f00e10cdb78
+Categories=Network;
