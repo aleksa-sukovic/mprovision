@@ -38,4 +38,8 @@
         - docker
         - php-storm
         - intellij-community
+        - android-studio
+        - google-chrome
+        - spotify
+        - vysor
         - plank
