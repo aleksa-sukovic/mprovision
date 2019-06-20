@@ -9,7 +9,6 @@
     - /home/aleksa/gnome-provisioning
     - /home/aleksa/.themes
     - /home/aleksa/.icons
-    - /home/aleksa/Pictures
     - /home/aleksa/.local/share/gnome-shell/extensions/
 
 - name: Copy configuration files
@@ -44,33 +43,38 @@
   with_items:
     - icons/mojave-icons.tar.xz
 
-- name: Load desktop configuration
-  become: true
-  become_user: aleksa
-  script: scripts/setup-desktop.sh
+- name: Set locale
+  copy:
+    src: config/locale.conf
+    dest: /etc/
 
 - name: Install extensions
   become: true
   become_user: aleksa
   script: scripts/install-extension.sh "{{ item }}"
   with_items:
-    - 15 # alternate-tab
-    - 779 # clipboard
-    - 16 # auto-move windows
-    - 1465 # desktop icons
-    - 2 # frippery move clock
-    - 1319 # gs connect
-    - 615 # KStatus Notifier Item
-    - 18 # native window placement
-    - 750 # open weather
-    - 708 # panel OSD
-    - 8 # places status indicator
-    - 7 # removable drive menu
-    - 19 # user themes
-    - 21 # workspace indicator
+    - 15    # alternate-tab
+    - 779   # clipboard
+    - 16    # auto-move windows
+    - 1465  # desktop icons
+    - 2     # frippery move clock
+    - 1319  # gs connect
+    - 615   # KStatus Notifier Item
+    - 18    # native window placement
+    - 750   # open weather
+    - 708   # panel OSD
+    - 8     # places status indicator
+    - 7     # removable drive menu
+    - 19    # user themes
+    - 21    # workspace indicator
 
-- name: Load extensions configuration
+- name: Load desktop configuration
   become: true
   become_user: aleksa
-  script: scripts/setup-extensions.sh
+  script: scripts/setup-desktop.sh
   notify: Restart Gnome
+
+- name: Clean up
+  file:
+    path: /home/aleksa/gnome-provisioning/
+    state: absent
