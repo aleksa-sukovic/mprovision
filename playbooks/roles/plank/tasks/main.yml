@@ -13,6 +13,7 @@
     dest: /home/aleksa/.config/plank/dock1/launchers/
     mode: 0755
     owner: aleksa
+    group: aleksa
 
 - name: Initialize themes
   become: true
@@ -21,6 +22,7 @@
     src: themes/
     dest: /home/aleksa/.local/share/plank/themes/
     owner: aleksa
+    group: aleksa
     mode: 0755
 
 - name: Copy configuration
@@ -30,6 +32,7 @@
     src: config/
     dest: /home/aleksa/.config/plank/
     owner: aleksa
+    group: aleksa
     mode: 0755
 
 - name: Initialize configuration

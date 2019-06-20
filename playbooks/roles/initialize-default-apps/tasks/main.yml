@@ -5,6 +5,7 @@
     dest: /home/aleksa/.local/share/applications/
     mode: 0755
     owner: aleksa
+    group: aleksa
 
 - name: Default desktop icons
   copy:
@@ -12,10 +13,12 @@
     dest: /home/aleksa/Documents/Dock/Icons/
     mode: 0755
     owner: aleksa
+    group: aleksa
 
 - name: Create default autostart application folder
   file:
     path: /home/aleksa/.config/autostart/
     state: directory
     owner: aleksa
+    group: aleksa
     mode: 0755

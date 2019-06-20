@@ -5,6 +5,7 @@
     state: directory
     mode: 0755
     owner: aleksa
+    group: aleksa
   with_items:
     - /home/aleksa/gnome-provisioning
     - /home/aleksa/.themes
@@ -17,6 +18,7 @@
     dest: /home/aleksa/gnome-provisioning/
     mode: 0755
     owner: aleksa
+    group: aleksa
 
 - name: Extract themes
   unarchive:
@@ -24,6 +26,7 @@
     dest: /home/aleksa/.themes/
     mode: 0755
     owner: aleksa
+    group: aleksa
   with_items:
     - themes/mojave-dark-alt.tar.xz
     - themes/mojave-dark-solid-alt.tar.xz
@@ -40,6 +43,7 @@
     dest: /home/aleksa/.icons/
     mode: 0775
     owner: aleksa
+    group: aleksa
   with_items:
     - icons/mojave-icons.tar.xz
 

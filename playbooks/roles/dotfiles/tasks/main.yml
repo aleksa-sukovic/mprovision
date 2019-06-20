@@ -34,6 +34,7 @@
     force: yes
     state: link
     owner: aleksa
+    group: aleksa
     mode: 0755
   with_items:
     - .profile
@@ -46,3 +47,4 @@
     state: present
     mode: 0755
     owner: aleksa
+    group: aleksa

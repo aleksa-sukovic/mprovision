@@ -10,6 +10,7 @@
     path: /home/aleksa/.config/calibre
     state: directory
     owner: aleksa
+    group: aleksa
     mode: 0755
 
 - name: Configure Calibre
@@ -17,4 +18,5 @@
     src: calibre-config.py
     dest: /home/aleksa/.config/calibre/global.py
     owner: aleksa
+    group: aleksa
     mode: 0755

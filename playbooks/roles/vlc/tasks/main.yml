@@ -10,6 +10,7 @@
     path: /home/aleksa/.config/vlc
     state: directory
     owner: aleksa
+    group: aleksa
     mode: 0755
 
 - name: Configure VLC Player
