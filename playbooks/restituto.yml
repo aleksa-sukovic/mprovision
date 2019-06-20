@@ -14,7 +14,7 @@
         - qbittorrent
         - fira-code
         - gnome
-        - dotfiles
+        - dotfiles4
         - ansible-aur
         - binutils
         - todoist
@@ -27,4 +27,5 @@
         - sublime
         - git
         - git-kraken
+        - draw-io
         - plank
