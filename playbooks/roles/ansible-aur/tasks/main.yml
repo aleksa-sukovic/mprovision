@@ -1,0 +1,8 @@
+---
+- name: Clone ansible AUR
+  become: true
+  become_user: aleksa
+  git:
+    repo: https://github.com/kewlfft/ansible-aur.git
+    dest: /home/aleksa/.ansible/plugins/modules/aur
+    force: yes
