@@ -1,15 +1,17 @@
 ---
-- name: Install
+- name: Install Python pexpect
   pacman:
-    name: virtualbox
+    name: python-pexpect
     state: latest
     update_cache: yes
 
-- name: Install host modules
-  pacman:
-    name: "{{ virtual_box_host_module }}"
-    state: latest
-    update_cache: yes
+- name: Install
+  expect:
+    command: pacman -S virtualbox
+    responses:
+        "(.*)(E|e)nter a number(.*)": "{{ vbox_module_id }}"
+        "(.*)(P|p)roceed with(.*)": "Y"
+
 
 - name: Load kernel modules
   command: modprobe vboxdrv

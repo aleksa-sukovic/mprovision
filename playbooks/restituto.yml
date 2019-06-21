@@ -7,7 +7,7 @@
         git_username: aleksa
         git_email: sukovic.aleksa@gmail.com
         calibre_library: /home/aleksa/pCloudDrive/Documents/Library
-        virtual_box_host_module: linux419-virtualbox-host-modules
+        vbox_module_id: 4
         plank_theme: mac-round
         gnome_theme: mojave-light
         gnome_icons_theme: mojave-icons
