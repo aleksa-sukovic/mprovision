@@ -34,6 +34,7 @@
         - blender
         - qbittorrent
         - fira-code
+        - vagrant
         - gnome
         - dotfiles4
         - ansible-aur
