@@ -41,7 +41,6 @@
         - vagrant
         - gnome
         - dotfiles4
-        - ansible-aur
         - binutils
         - todoist
         - visual-studio-code

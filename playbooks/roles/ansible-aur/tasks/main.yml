@@ -1,10 +1,8 @@
 ---
 - name: Clone ansible AUR
-  become: true
-  become_user: "{{ username }}"
   git:
     repo: https://github.com/kewlfft/ansible-aur.git
-    dest: "/home/{{ username }}/.ansible/plugins/modules/aur"
+    dest: "/usr/share/ansible/plugins/modules/aur"
     force: yes
 
 - name: Add aur_builder user
