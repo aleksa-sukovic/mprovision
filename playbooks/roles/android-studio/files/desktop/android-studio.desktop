@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Notion
-GenericName=Notion
+Name=Android Studio
+GenericName=Android Studio
 Exec="/opt/android-studio/bin/studio.sh" %U
 Icon=/opt/android-studio/bin/studio.png
 Terminal=false
