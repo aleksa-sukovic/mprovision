@@ -45,12 +45,14 @@
 - name: Copy configuration
   become: true
   become_user: "{{ username }}"
-  copy:
-    src: config/
+  template:
+    src: "{{ item }}"
     dest: /home/{{ username }}/.config/plank/
     owner: "{{ username }}"
     group: "{{ group }}"
     mode: 0755
+  with_items:
+    - config/plank-config.ini
 
 - name: Initialize configuration
   become: true

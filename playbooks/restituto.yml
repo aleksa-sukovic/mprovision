@@ -7,6 +7,9 @@
         git_username: aleksa
         git_email: sukovic.aleksa@gmail.com
         calibre_library: /home/aleksa/pCloudDrive/Documents/Library
+        plank_theme: mac-round
+        gnome_theme: mojave-light
+        gnome_icons_theme: mojave-icons
         gnome_extensions:
           - 15    # alternate-tab
           - 779   # clipboard
