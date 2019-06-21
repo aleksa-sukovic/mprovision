@@ -2,4 +2,4 @@
 
 dbus-launch dconf load \
     /org/gnome/ < \
-    /home/aleksa/gnome-provisioning/gnome-config.ini
+    ~/gnome-provisioning/gnome-config.ini
