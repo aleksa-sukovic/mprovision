@@ -1,6 +1,6 @@
 ---
 - name: Install
-  aur:
+  pacman:
     name: yay
-  become: true
-  become_user: aur_builder
+    state: latest
+    update_cache: yes
