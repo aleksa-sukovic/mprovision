@@ -15,7 +15,7 @@
     group: "{{ group }}"
 
 - name: Copy dock item
-  copy:
+  template:
     src: dock/visual-studio-code.dockitem
     dest: /home/{{ username }}/.config/plank/dock1/launchers/
     mode: 0755
