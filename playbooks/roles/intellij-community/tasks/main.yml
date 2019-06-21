@@ -6,7 +6,7 @@
 #     update_cache: yes
 
 - name: Copy desktop file
-  copy:
+  template:
     src: desktop/intellij-community.desktop
     dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
@@ -14,7 +14,7 @@
     group: "{{ group }}"
 
 - name: Copy dock item
-  copy:
+  template:
     src: dock/intellij-community.dockitem
     dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
