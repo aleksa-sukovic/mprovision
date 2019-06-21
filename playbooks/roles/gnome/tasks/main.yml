@@ -11,6 +11,7 @@
     - "/home/{{ username }}/.themes"
     - "/home/{{ username }}/.icons"
     - "/home/{{ username }}/.local/share/gnome-shell/extensions/"
+    - "/home/{{ username }}/Pictures/Wallpapers"
 
 - name: Copy configuration files
   copy:
@@ -56,6 +57,11 @@
     group: "{{ group }}"
   with_items:
     - icons/mojave-icons.tar.xz
+
+- name: Copy images
+  copy:
+    src: images/
+    dest: "/home/{{ username }}/Pictures/Wallpapers/"
 
 - name: Set locale
   copy:

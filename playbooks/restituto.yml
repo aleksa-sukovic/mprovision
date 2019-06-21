@@ -11,6 +11,8 @@
         plank_theme: mac-round
         gnome_theme: mojave-light
         gnome_icons_theme: mojave-icons
+        gnome_wallpaper: mojave-light.jpg
+        gnome_lockscreen: lockscreen.jpg
         gnome_extensions:
           - 15    # alternate-tab
           - 779   # clipboard
