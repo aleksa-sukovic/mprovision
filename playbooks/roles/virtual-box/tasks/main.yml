@@ -1,0 +1,15 @@
+---
+- name: Install
+  pacman:
+    name: virtualbox
+    state: latest
+    update_cache: yes
+
+- name: Install host modules
+  pacman:
+    name: "{{ virtual_box_host_module }}"
+    state: latest
+    update_cache: yes
+
+- name: Load kernel modules
+  command: modprobe vboxdrv
