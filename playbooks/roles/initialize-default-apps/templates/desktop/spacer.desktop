@@ -3,5 +3,5 @@ Version=1.0
 Type=Application
 Name=Space
 Exec=nothing
-Icon=/home/aleksa/Documents/Dock/Icons/spacer.png
+Icon=/home/{{ username }}/Documents/Dock/Icons/spacer.png
 NoDisplay=true

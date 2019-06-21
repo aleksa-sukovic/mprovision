@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Development
 Exec=nautilus ./Development
-Icon=/home/aleksa/Documents/Dock/Icons/development.png
+Icon=/home/{{ username }}/Documents/Dock/Icons/development.png
 Terminal=false
 Type=Application

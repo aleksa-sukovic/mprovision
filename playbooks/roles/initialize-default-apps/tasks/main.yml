@@ -1,11 +1,19 @@
 ---
 - name: Default desktop files
-  copy:
-    src: desktop/
+  template:
+    src: "{{ item }}"
     dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
     owner: "{{ username }}"
     group: "{{ group }}"
+  with_items:
+    - desktop/cloud.desktop
+    - desktop/desktop-folder.desktop
+    - desktop/development.desktop
+    - desktop/downloads.desktop
+    - desktop/home.desktop
+    - desktop/firefox.desktop
+    - desktop/spacer.desktop
 
 - name: Default desktop icons
   copy:
