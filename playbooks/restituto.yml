@@ -28,7 +28,7 @@
           - 21    # workspace indicator
       roles:
         - ping
-        - remove-defaults
+        - purge
         - upgrade-system
         - default-apps
         - yay
