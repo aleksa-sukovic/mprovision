@@ -15,6 +15,23 @@
     owner: "{{ username }}"
     group: "{{ group }}"
 
+- name: Initialize template items
+  become: true
+  become_user: "{{ username }}"
+  template:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - items/cloud.dockitem
+    - items/desktop-folder.dockitem
+    - items/development.dockitem
+    - items/downloads.dockitem
+    - items/firefox.dockitem
+    - items/spacer.dockitem
+
 - name: Initialize themes
   become: true
   become_user: "{{ username }}"

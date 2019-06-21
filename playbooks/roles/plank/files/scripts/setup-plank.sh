@@ -2,4 +2,4 @@
 
 dbus-launch dconf load \
     /net/launchpad/plank/docks/ < \
-    /home/aleksa/.config/plank/plank-config.ini
+    ~/.config/plank/plank-config.ini

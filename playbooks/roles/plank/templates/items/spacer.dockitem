@@ -3,4 +3,4 @@
 
 [PlankDockItemPreferences]
 #The uri for this item.
-Launcher=file:///home/aleksa/.local/share/applications/spacer.desktop
+Launcher=file:///home/{{ username }}/.local/share/applications/spacer.desktop
