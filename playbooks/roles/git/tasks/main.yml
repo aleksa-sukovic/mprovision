@@ -6,7 +6,7 @@
     update_cache: yes
 
 - name: Configure username
-  command: git config --global user.name "Aleksa Sukovic"
+  command: "git config --global user.name \"{{ git_username }}\""
 
 - name: Configure email
-  command: git config --global user.email "sukovic.aleksa@gmail.com"
+  command: "git config --global user.email \"{{ git_email }}\""
