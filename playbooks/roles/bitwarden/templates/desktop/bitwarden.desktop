@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Bitwarden
+Comment=A secure and free password manager for all of your devices.
+Exec=/usr/bin/bitwarden-bin
+Terminal=false
+Type=Application
+Icon=/home/{{ username }}/Documents/Dock/Icons/bitwarden.png
+StartupWMClass=Bitwarden
+X-AppImage-Version=1.14.0
+Categories=Utility;
+X-AppImage-BuildId=1IN24goKEzaFoO2SuKIV1Mfz2MM
+TryExec=/usr/bin/bitwarden-bin
+X-AppImage-Old-Icon=bitwarden
+X-AppImage-Identifier=9ee27260513be2d99970ff8bf8f61cd2
+Actions=Remove;Update;
+X-AppImageLauncher-Version=1.2.2 (git commit 7279b50), built on 2019-04-12 21:45:14 UTC
