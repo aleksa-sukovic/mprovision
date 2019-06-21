@@ -11,7 +11,7 @@
     dest: "/home/{{ username }}/.config/albert/"
 
 - name: Copy desktop file
-  copy:
+  template:
     src: desktop/albert.desktop
     dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
@@ -19,7 +19,7 @@
     group: "{{ group }}"
 
 - name: Copy dock item
-  copy:
+  template:
     src: dock/albert.dockitem
     dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
