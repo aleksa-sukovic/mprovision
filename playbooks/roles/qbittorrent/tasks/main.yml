@@ -34,7 +34,7 @@
     group: "{{ group }}"
 
 - name: Copy dock item
-  copy:
+  template:
     src: dock/qbittorrent.dockitem
     dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
