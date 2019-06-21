@@ -6,9 +6,17 @@
     update_cache: yes
 
 - name: Copy desktop file
-  copy:
+  template:
     src: desktop/blender.desktop
     dest: "/home/{{ username }}/.local/share/applications/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy dock item
+  template:
+    src: dock/blender.dockitem
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
     owner: "{{ username }}"
     group: "{{ group }}"
@@ -17,14 +25,6 @@
   copy:
     src: icons/blender.png
     dest: "/home/{{ username }}/Documents/Dock/Icons/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy dock item
-  copy:
-    src: dock/blender.dockitem
-    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
     owner: "{{ username }}"
     group: "{{ group }}"
