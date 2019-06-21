@@ -7,40 +7,40 @@
 
 - name: Initialize items
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   copy:
     src: items/
-    dest: /home/aleksa/.config/plank/dock1/launchers/
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Initialize themes
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   copy:
     src: themes/
-    dest: /home/aleksa/.local/share/plank/themes/
-    owner: aleksa
-    group: aleksa
+    dest: "/home/{{ username }}/.local/share/plank/themes/"
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
 
 - name: Copy configuration
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   copy:
     src: config/
-    dest: /home/aleksa/.config/plank/
-    owner: aleksa
-    group: aleksa
+    dest: /home/{{ username }}/.config/plank/
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
 
 - name: Initialize configuration
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   script: scripts/setup-plank.sh
 
 - name: Add to autostart
   become: true
-  become_user: aleksa
-  command: cp /usr/share/applications/plank.desktop /home/aleksa/.config/autostart/
+  become_user: "{{ username }}"
+  command: "cp /usr/share/applications/plank.desktop /home/{{ username }}/.config/autostart/"

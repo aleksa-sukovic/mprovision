@@ -2,31 +2,31 @@
 - name: Default desktop files
   copy:
     src: desktop/
-    dest: /home/aleksa/.local/share/applications/
+    dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Default desktop icons
   copy:
     src: icons/
-    dest: /home/aleksa/Documents/Dock/Icons/
+    dest: "/home/{{ username }}/Documents/Dock/Icons/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Create default autostart application folder
   file:
-    path: /home/aleksa/.config/autostart/
+    path: "/home/{{ username }}/.config/autostart/"
     state: directory
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
 
 - name: Create AppImage application directory
   file:
-    path: /home/aleksa/Applications
+    path: "/home/{{ username }}/Applications"
     state: directory
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755

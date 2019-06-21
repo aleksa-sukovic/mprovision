@@ -1,40 +1,40 @@
 ---
 - name: Create 'Development' folder
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   file:
     path: "{{ item }}"
     state: directory
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
   with_items:
-    - /home/aleksa/Development
-    - /home/aleksa/Development/Source
+    - "/home/{{ username }}/Development"
+    - "/home/{{ username }}/Development/Source"
 
 - name: Clone 'dotfiles' repository
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   git:
     repo: https://github.com/aleksa-sukovic/dotfiles
-    dest: /home/aleksa/Development/Source/dotfiles/
+    dest: "/home/{{ username }}/Development/Source/dotfiles/"
     force: yes
 
 - name: Setup username
   lineinfile:
-    path: /home/aleksa/Development/Source/dotfiles/src/local/.profile
+    path: "/home/{{ username }}/Development/Source/dotfiles/src/local/.profile"
     regexp: '{username}'
-    line: '. "/home/aleksa/.profile_functions"'
+    line: '. "/home/{{ username }}/.profile_functions"'
     backrefs: yes
 
 - name: Make soft links
   file:
-    src: "/home/aleksa/Development/Source/dotfiles/src/local/{{ item }}"
-    dest: "/home/aleksa/{{ item }}"
+    src: "/home/{{ username }}/Development/Source/dotfiles/src/local/{{ item }}"
+    dest: "/home/{{ username }}/{{ item }}"
     force: yes
     state: link
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
   with_items:
     - .profile
@@ -42,9 +42,9 @@
 
 - name: Add dotfiles to 'bashrc'
   lineinfile:
-    path: /home/aleksa/.bashrc
+    path: "/home/{{ username }}/.bashrc"
     line: '[[ -f ~/.profile ]] && . ~/.profile'
     state: present
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"

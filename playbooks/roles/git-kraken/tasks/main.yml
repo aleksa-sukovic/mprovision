@@ -8,23 +8,23 @@
 - name: Copy desktop file
   copy:
     src: desktop/git-kraken.desktop
-    dest: /home/aleksa/.local/share/applications/
+    dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy dock item
   copy:
     src: dock/git-kraken.dockitem
-    dest: /home/aleksa/.config/plank/dock1/launchers/
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy icon
   copy:
     src: icons/git-kraken.png
-    dest: /home/aleksa/Documents/Dock/Icons/
+    dest: "/home/{{ username }}/Documents/Dock/Icons/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"

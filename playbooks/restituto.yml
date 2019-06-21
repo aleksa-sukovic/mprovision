@@ -1,6 +1,9 @@
 ---
     - hosts: all
       become: true
+      vars:
+        username: aleksa
+        group: aleksa
       roles:
         - ping
         - remove-defaults

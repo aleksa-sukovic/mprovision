@@ -4,29 +4,29 @@
     path: "{{ item }}"
     state: directory
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
   with_items:
-    - /home/aleksa/gnome-provisioning
-    - /home/aleksa/.themes
-    - /home/aleksa/.icons
-    - /home/aleksa/.local/share/gnome-shell/extensions/
+    - "/home/{{ username }}/gnome-provisioning"
+    - "/home/{{ username }}/.themes"
+    - "/home/{{ username }}/.icons"
+    - "/home/{{ username }}/.local/share/gnome-shell/extensions/"
 
 - name: Copy configuration files
   copy:
     src: config/
-    dest: /home/aleksa/gnome-provisioning/
+    dest: "/home/{{ username }}/gnome-provisioning/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Extract themes
   unarchive:
     src: "{{ item }}"
-    dest: /home/aleksa/.themes/
+    dest: "/home/{{ username }}/.themes/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
   with_items:
     - themes/mojave-dark-alt.tar.xz
     - themes/mojave-dark-solid-alt.tar.xz
@@ -40,10 +40,10 @@
 - name: Extract icons
   unarchive:
     src: "{{ item }}"
-    dest: /home/aleksa/.icons/
+    dest: "/home/{{ username }}/.icons/"
     mode: 0775
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
   with_items:
     - icons/mojave-icons.tar.xz
 
@@ -60,7 +60,7 @@
 
 - name: Install extensions
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   script: scripts/install-extension.sh "{{ item }}"
   with_items:
     - 15    # alternate-tab
@@ -80,11 +80,11 @@
 
 - name: Load desktop configuration
   become: true
-  become_user: aleksa
+  become_user: "{{ username }}"
   script: scripts/setup-desktop.sh
   notify: Restart Gnome
 
 - name: Clean up
   file:
-    path: /home/aleksa/gnome-provisioning/
+    path: "/home/{{ username }}/gnome-provisioning/"
     state: absent

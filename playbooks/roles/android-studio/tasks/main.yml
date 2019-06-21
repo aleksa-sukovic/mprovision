@@ -8,23 +8,23 @@
 - name: Copy desktop file
   copy:
     src: desktop/android-studio.desktop
-    dest: /home/aleksa/.local/share/applications/
+    dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy dock item
   copy:
     src: dock/android-studio.dockitem
-    dest: /home/aleksa/.config/plank/dock1/launchers/
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy config to import manually
   copy:
     src: config/android-studio-config.zip
-    dest: /home/aleksa/.config/jetbrains-zip-config/
+    dest: "/home/{{ username }}/.config/jetbrains-zip-config/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"

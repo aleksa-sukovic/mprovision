@@ -7,13 +7,13 @@
 
 - name: Create VLC Player config directory
   file:
-    path: /home/aleksa/.config/vlc
+    path: "/home/{{ username }}/.config/vlc"
     state: directory
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
 
 - name: Configure VLC Player
   copy:
     src: vlc-config
-    dest: /home/aleksa/.config/vlc/vlcrc
+    dest: "/home/{{ username }}/.config/vlc/vlcrc"

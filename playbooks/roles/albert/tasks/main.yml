@@ -8,33 +8,33 @@
 - name: Load configuration
   copy:
     src: config/
-    dest: /home/aleksa/.config/albert/
+    dest: "/home/{{ username }}/.config/albert/"
 
 - name: Copy desktop file
   copy:
     src: desktop/albert.desktop
-    dest: /home/aleksa/.local/share/applications/
+    dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy dock item
   copy:
     src: dock/albert.dockitem
-    dest: /home/aleksa/.config/plank/dock1/launchers/
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Copy icon
   copy:
     src: icons/albert.png
-    dest: /home/aleksa/Documents/Dock/Icons/
+    dest: "/home/{{ username }}/Documents/Dock/Icons/"
     mode: 0755
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
 
 - name: Add to autostart
   become: true
-  become_user: aleksa
-  command: cp /usr/share/applications/albert.desktop /home/aleksa/.config/autostart/
+  become_user: "{{ username }}"
+  command: cp /usr/share/applications/albert.desktop /home/{{ username }}/.config/autostart/

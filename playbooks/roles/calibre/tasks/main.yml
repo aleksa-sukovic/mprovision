@@ -7,16 +7,16 @@
 
 - name: Create config directory
   file:
-    path: /home/aleksa/.config/calibre
+    path: "/home/{{ username }}/.config/calibre"
     state: directory
-    owner: aleksa
-    group: aleksa
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
 
 - name: Configure Calibre
   copy:
     src: calibre-config.py
-    dest: /home/aleksa/.config/calibre/global.py
-    owner: aleksa
-    group: aleksa
+    dest: "/home/{{ username }}/.config/calibre/global.py"
+    owner: "{{ username }}"
+    group: "{{ group }}"
     mode: 0755
