@@ -6,7 +6,7 @@
   become_user: aur_builder
 
 - name: Copy desktop file
-  copy:
+  template:
     src: desktop/notion.desktop
     dest: "/home/{{ username }}/.local/share/applications/"
     mode: 0755
@@ -14,7 +14,7 @@
     group: "{{ group }}"
 
 - name: Copy dock item
-  copy:
+  template:
     src: dock/notion.dockitem
     dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
     mode: 0755
