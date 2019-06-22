@@ -2,7 +2,6 @@
 - name: Install
   aur:
     name: todoist-linux-bin
-    use: makepkg
   become: true
   become_user: aur_builder
 
