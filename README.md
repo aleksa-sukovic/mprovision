@@ -128,18 +128,18 @@ Here I'll list all available settings with allowed values.
   - `gnome_wallpaper`
 
     - Main desktop wallpaper.
-    - Allowed values: [ *'mojave-light.jpg'*, *'mojave-dark.jpg'* ]
+    - Allowed values: [ *'mojave-light.jpg'*, *'mojave-dark.jpg'*, *'solid.jpg'* ]
 
   - `gnome_lockscreen`
 
     - Lockscreen wallpaper.
-    - Allowed values: [ *'lockscreen.jpg*' ]
+    - Allowed values: [ *'lockscreen.jpg*', *'solid.jpg'*  ]
 
   - `gnome_extensions`
 
     - List of gnome extensions to be installed.
     - Extensions are identified using unique *id*.
-    - To find extension *id* [search for extension](https://github.com/aleksa-sukovic/dotfiles) and note it's which is found in extension URL.
+    - To find extension *id* [search for extension](https://extensions.gnome.org/) and note it's which is found in extension URL.
     - Allowed values: *any valid Gnome extension id.*
 
 ## How to run?
@@ -171,8 +171,6 @@ Some applications required additional steps in order to complete full configurat
 3. General details about Linux systems and their organization.
 
 ## Images
-
-- - -
 
 ### *Before*
 ![Before](https://api.pcloud.com/getpubthumb?code=XZDlfa7ZlQCKgCLEN4pgFdoE2AuMCLEoqrHy&linkpassword=undefined&size=1257x914&crop=0&type=auto)
