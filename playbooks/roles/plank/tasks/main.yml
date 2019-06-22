@@ -47,7 +47,7 @@
   become_user: "{{ username }}"
   template:
     src: "{{ item }}"
-    dest: /home/{{ username }}/.config/plank/
+    dest: "/home/{{ username }}/.config/plank/"
     owner: "{{ username }}"
     group: "{{ group }}"
     mode: 0755
