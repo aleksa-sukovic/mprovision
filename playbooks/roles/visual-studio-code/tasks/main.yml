@@ -1,0 +1,22 @@
+---
+- name: Install
+  aur:
+    name: visual-studio-code-bin
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/visual-studio-code.desktop
+    dest: /home/{{ username }}/.local/share/applications/
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy dock item
+  template:
+    src: dock/visual-studio-code.dockitem
+    dest: /home/{{ username }}/.config/plank/dock1/launchers/
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"

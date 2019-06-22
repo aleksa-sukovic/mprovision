@@ -1,0 +1,19 @@
+---
+- name: Install VLC Player
+  pacman:
+    name: vlc
+    state: latest
+    update_cache: yes
+
+- name: Create VLC Player config directory
+  file:
+    path: "/home/{{ username }}/.config/vlc"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755
+
+- name: Configure VLC Player
+  copy:
+    src: vlc-config
+    dest: "/home/{{ username }}/.config/vlc/vlcrc"

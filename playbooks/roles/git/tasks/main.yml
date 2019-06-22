@@ -1,0 +1,12 @@
+---
+- name: Install
+  pacman:
+    name: git
+    state: latest
+    update_cache: yes
+
+- name: Configure username
+  command: "git config --global user.name \"{{ git_username }}\""
+
+- name: Configure email
+  command: "git config --global user.email \"{{ git_email }}\""

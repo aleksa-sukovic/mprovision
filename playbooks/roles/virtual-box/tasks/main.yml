@@ -1,0 +1,5 @@
+---
+- name: Copy installation script
+  copy:
+    src: scripts/vbox-setup.sh
+    dest: ~/.config/vbox/

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Android Studio
+GenericName=Android Studio
+Exec="/opt/android-studio/bin/studio.sh" %U
+Icon=/opt/android-studio/bin/studio.png
+Terminal=false
+Type=Application
+Name[en_US]=Android Studio

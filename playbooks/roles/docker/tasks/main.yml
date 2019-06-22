@@ -1,0 +1,25 @@
+---
+- name: Install
+  pacman:
+    name:
+      - docker
+      - docker-compose
+    state: latest
+    update_cache: yes
+
+- name: Enable Docker at startup
+  command: systemctl enable docker.service
+
+- name: Start Docker
+  command: systemctl start docker.service
+
+- name: Create Docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add user to Docker group
+  user:
+    name: "{{ username }}"
+    groups: docker
+    append: yes

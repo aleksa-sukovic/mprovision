@@ -1,0 +1,33 @@
+---
+- name: Install
+  aur:
+    name: sublime-text-dev
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/sublime.desktop
+    dest: /home/{{ username }}/.local/share/applications/
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy dock item
+  template:
+    src: dock/sublime.dockitem
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Remove current user config
+  file:
+    path: "/home/{{ username }}/.config/sublime-text-3/Packages/User"
+    state: absent
+
+- name: Clone settings
+  git:
+   repo: https://github.com/aleksa-sukovic/sublime-configuration.git
+   dest: "/home/{{ username }}/.config/sublime-text-3/Packages/User"
+   force: yes

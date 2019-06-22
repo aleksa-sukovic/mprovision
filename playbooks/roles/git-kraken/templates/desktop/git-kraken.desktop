@@ -1,0 +1,7 @@
+[Desktop Entry]
+Categories=Utility;
+Exec=/opt/gitkraken/gitkraken
+Icon=/home/aleksa/Documents/Dock/Icons/git-kraken.png
+Name=GitKraken
+Type=Application
+Version=1.0

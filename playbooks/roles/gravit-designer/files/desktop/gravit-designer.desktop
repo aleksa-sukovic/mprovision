@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Gravit Designer
+Comment=gravit-designer
+Exec=gravit-designer
+Terminal=false
+Type=Application
+Icon=gravit-designer
+StartupWMClass=Gravit Designer
+Version=3.5.18.3416
+MimeType=x-scheme-handler/designer;application/gravit-designer-document
+Categories=Graphics;

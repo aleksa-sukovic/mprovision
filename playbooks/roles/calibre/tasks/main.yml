@@ -1,0 +1,22 @@
+---
+- name: Install Calibre
+  pacman:
+    name: calibre
+    state: latest
+    update_cache: yes
+
+- name: Create config directory
+  file:
+    path: "/home/{{ username }}/.config/calibre"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755
+
+- name: Configure Calibre
+  template:
+    src: calibre-config.py
+    dest: "/home/{{ username }}/.config/calibre/global.py"
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755

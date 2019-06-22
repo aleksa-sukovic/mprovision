@@ -1,0 +1,92 @@
+---
+- name: Initialize directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - "/home/{{ username }}/gnome-provisioning"
+    - "/home/{{ username }}/.themes"
+    - "/home/{{ username }}/.icons"
+    - "/home/{{ username }}/.local/share/gnome-shell/extensions/"
+    - "/home/{{ username }}/Pictures/Wallpapers"
+
+- name: Copy configuration files
+  copy:
+    src: config/
+    dest: "/home/{{ username }}/gnome-provisioning/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy template configuration files
+  template:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/gnome-provisioning/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - config/gnome-config.ini
+
+- name: Extract themes
+  unarchive:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.themes/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - themes/mojave-dark-alt.tar.xz
+    - themes/mojave-dark-solid-alt.tar.xz
+    - themes/mojave-dark-solid.tar.xz
+    - themes/mojave-dark.tar.xz
+    - themes/mojave-light-alt.tar.xz
+    - themes/mojave-light-solid-alt.tar.xz
+    - themes/mojave-light-solid.tar.xz
+    - themes/mojave-light.tar.xz
+
+- name: Extract icons
+  unarchive:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.icons/"
+    mode: 0775
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - icons/mojave-icons.tar.xz
+
+- name: Copy images
+  copy:
+    src: images/
+    dest: "/home/{{ username }}/Pictures/Wallpapers/"
+
+- name: Set locale
+  copy:
+    src: config/locale.conf
+    dest: /etc/
+
+- name: Install Gnome shell extensions connector
+  pacman:
+    name: chrome-gnome-shell
+    state: latest
+    update_cache: yes
+
+- name: Install extensions
+  become: true
+  become_user: "{{ username }}"
+  script: scripts/install-extension.sh "{{ item }}"
+  with_items: "{{ gnome_extensions }}"
+
+- name: Load desktop configuration
+  become: true
+  become_user: "{{ username }}"
+  script: scripts/setup-desktop.sh
+  notify: Restart Gnome
+
+- name: Clean up
+  file:
+    path: "/home/{{ username }}/gnome-provisioning/"
+    state: absent

@@ -1,0 +1,6 @@
+---
+    - hosts: all
+      roles:
+        - ansible-aur
+        - patch
+        - binutils

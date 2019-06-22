@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Home
+Exec=nautilus
+Icon=/home/{{ username }}/Documents/Dock/Icons/home.png
+Terminal=false
+Type=Application

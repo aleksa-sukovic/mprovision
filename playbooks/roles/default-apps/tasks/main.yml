@@ -1,0 +1,40 @@
+---
+- name: Default desktop files
+  template:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.local/share/applications/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - desktop/cloud.desktop
+    - desktop/desktop-folder.desktop
+    - desktop/development.desktop
+    - desktop/downloads.desktop
+    - desktop/home.desktop
+    - desktop/firefox.desktop
+    - desktop/spacer.desktop
+
+- name: Default desktop icons
+  copy:
+    src: icons/
+    dest: "/home/{{ username }}/Documents/Dock/Icons/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Create default autostart application folder
+  file:
+    path: "/home/{{ username }}/.config/autostart/"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755
+
+- name: Create AppImage application directory
+  file:
+    path: "/home/{{ username }}/Applications"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755

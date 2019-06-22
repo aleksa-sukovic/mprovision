@@ -1,6 +1,65 @@
 ---
-- name: Install Plank dock
+- name: Install dock
   pacman:
     name: plank
     state: latest
     update_cache: yes
+
+- name: Initialize items
+  become: true
+  become_user: "{{ username }}"
+  copy:
+    src: items/
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Initialize template items
+  become: true
+  become_user: "{{ username }}"
+  template:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - items/cloud.dockitem
+    - items/desktop-folder.dockitem
+    - items/development.dockitem
+    - items/downloads.dockitem
+    - items/firefox.dockitem
+    - items/spacer.dockitem
+
+- name: Initialize themes
+  become: true
+  become_user: "{{ username }}"
+  copy:
+    src: themes/
+    dest: "/home/{{ username }}/.local/share/plank/themes/"
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755
+
+- name: Copy configuration
+  become: true
+  become_user: "{{ username }}"
+  template:
+    src: "{{ item }}"
+    dest: "/home/{{ username }}/.config/plank/"
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755
+  with_items:
+    - config/plank-config.ini
+
+- name: Initialize configuration
+  become: true
+  become_user: "{{ username }}"
+  script: scripts/setup-plank.sh
+
+- name: Add to autostart
+  become: true
+  become_user: "{{ username }}"
+  command: "cp /usr/share/applications/plank.desktop /home/{{ username }}/.config/autostart/"

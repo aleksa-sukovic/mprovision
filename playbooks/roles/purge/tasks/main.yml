@@ -1,0 +1,19 @@
+---
+- name: Remove default applications
+  pacman:
+    state: absent
+    name:
+        - hlip
+        - hplip
+        - kvantum-qt5
+        - gnome-todo
+        - simple-scan
+        - evolution
+        - empathy
+        - hexchat
+        - ms-office-online
+        - transmission-gtk
+        - uget
+        - timeshift
+    force: yes
+    extra_args: --recursive

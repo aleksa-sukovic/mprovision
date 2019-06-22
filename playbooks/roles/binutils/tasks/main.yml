@@ -1,0 +1,6 @@
+---
+- name: Install
+  pacman:
+    name: binutils
+    state: latest
+    update_cache: yes

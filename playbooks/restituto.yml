@@ -1,0 +1,72 @@
+---
+    - hosts: all
+      become: true
+      vars:
+        username: aleksa
+        group: aleksa
+        git_username: aleksa
+        git_email: sukovic.aleksa@gmail.com
+        calibre_library: /home/aleksa/pCloudDrive/Documents/Library
+        plank_theme: mac-round
+        gnome_theme: mojave-light
+        gnome_icons_theme: mojave-icons
+        gnome_wallpaper: mojave-light.jpg
+        gnome_lockscreen: lockscreen.jpg
+        gnome_extensions:
+          - 15    # alternate-tab
+          - 779   # clipboard
+          - 16    # auto-move windows
+          - 1465  # desktop icons
+          - 2     # frippery move clock
+          - 1319  # gs connect
+          - 615   # KStatus Notifier Item
+          - 18    # native window placement
+          - 750   # open weather
+          - 708   # panel OSD
+          - 8     # places status indicator
+          - 7     # removable drive menu
+          - 19    # user themes
+          - 21    # workspace indicator
+      roles:
+        - ping
+        - purge
+        - upgrade-system
+        - default-apps
+        - trizen
+        - yay
+        - calibre
+        - vlc
+        - blender
+        - qbittorrent
+        - fira-code
+        - vagrant
+        - gnome
+        - dotfiles
+        - todoist
+        - visual-studio-code
+        - albert
+        - telegram
+        - viber
+        - whatsie
+        - slack
+        - sublime
+        - git
+        - git-kraken
+        - draw-io
+        - dbeaver
+        - gravit-designer
+        - pcloud
+        - postman
+        - nativefier
+        - notion
+        - bitwarden
+        - docker
+        - php-storm
+        - intellij-community
+        - android-studio
+        - google-chrome
+        - spotify
+        - vysor
+        - virtual-box
+        - vmware
+        - plank

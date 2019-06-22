@@ -1,0 +1,42 @@
+---
+- name: Install
+  pacman:
+    name: qbittorrent
+    state: latest
+    update_cache: yes
+
+- name: Copy desktop file
+  copy:
+    src: desktop/qbittorrent.desktop
+    dest: "/home/{{ username }}/.local/share/applications/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Create needed folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+  with_items:
+    - /home/{{ username }}/Downloads/Torrent
+    - /home/{{ username }}/Downloads/Torrent/Torrents
+    - /home/{{ username }}/.config/qBittorrent
+
+- name: Copy config
+  copy:
+    src: config/qbittorrent-config.conf
+    dest: "/home/{{ username }}/.config/qBittorrent/qBittorrent.conf"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy dock item
+  template:
+    src: dock/qbittorrent.dockitem
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"

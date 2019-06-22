@@ -1,0 +1,3 @@
+[PlankDockItemPreferences]
+Launcher=file:////home/{{ username }}/.local/share/applications/sublime.desktop
+

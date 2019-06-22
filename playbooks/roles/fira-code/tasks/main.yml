@@ -1,0 +1,6 @@
+---
+- name: Install
+  pacman:
+    name: otf-fira-code
+    state: latest
+    update_cache: yes

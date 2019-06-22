@@ -1,0 +1,22 @@
+---
+- name: Install
+  aur:
+    name: drawio-desktop
+  become: true
+  become_user: aur_builder
+
+- name: Copy desktop file
+  copy:
+    src: desktop/draw-io.desktop
+    dest: "/home/{{ username }}/.local/share/applications/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ group }}"
+
+- name: Copy dock item
+  template:
+    src: dock/draw-io.dockitem
+    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
+    mode: 0755
+    owner: "{{ username }}"
+    group: "{{ username }}"

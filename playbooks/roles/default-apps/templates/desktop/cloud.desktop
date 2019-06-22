@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Cloud
+Exec=nautilus ./pCloudDrive
+Icon=/home/{{ username }}/Documents/Dock/Icons/cloud.png
+Terminal=false
+Type=Application
