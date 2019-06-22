@@ -62,6 +62,7 @@ Applications that will be installed:
 - VMware Workstation
 - Vysor
 - Whatsie
+- Patch
 - Yay
 
 **3.)**
@@ -176,4 +177,4 @@ Some applications required additional steps in order to complete full configurat
 ![Before](https://api.pcloud.com/getpubthumb?code=XZDlfa7ZlQCKgCLEN4pgFdoE2AuMCLEoqrHy&linkpassword=undefined&size=1257x914&crop=0&type=auto)
 
 ### *After*
-![After](https://api.pcloud.com/getpubthumb?code=XZ6wfa7ZuxwBmRyzAX0dbpceTc7RozFpUeYV&linkpassword=undefined&size=1233x845&crop=0&type=auto)
+![After](https://api.pcloud.com/getpubthumb?code=XZaFDa7ZF7AoNj3l4zy0E4C8iTJbLS44mIck&linkpassword=undefined&size=1365x886&crop=0&type=auto)
