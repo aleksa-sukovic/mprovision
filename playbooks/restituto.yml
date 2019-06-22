@@ -33,8 +33,8 @@
         - purge
         - upgrade-system
         - default-apps
-        - yay
         - trizen
+        - yay
         - calibre
         - vlc
         - blender
