@@ -1,0 +1,6 @@
+---
+- name: Install
+  pacman:
+    name: patch
+    state: latest
+    update_cache: yes
