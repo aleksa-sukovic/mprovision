@@ -101,16 +101,6 @@ Here I'll list all available settings with allowed values.
 
     - Path where You wish to store Calibre library.
 
-  - `vbox_module_id`
-
-    - Number of kernel module to be installed.
-    - First find out Your kernel number with `uname -r`.
-    - Then You can find out which module is appropriate by running `sudo pacman -S virtualbox`.
-
-      - This will try to install VirtualBox, but will first ask You to choose kernel module.
-      - Note the number that matches Your kernel. There is no need to proceed with installation.
-      - **This is the number You need to enter as value for this config.**
-
   - `plank_theme`
 
     - Theme that is used for Plank Dock.
@@ -148,12 +138,10 @@ Here I'll list all available settings with allowed values.
 In order to run this playbook You must follow several steps. I assume You've already set preferred variables in `restituto.yml` playbook. (check *Configuration* section).
 
 1. ) Install Arch or any Arch based distro on Your system as You would normally.
-2. ) Install Ansible manually.
-3. ) Clone this repository anywhere You want.
-4. ) Navigate to repository folder.
-5. ) Run `sudo ansible-playbook playbooks/init.yml`
-6. ) Run `sudo ansible-playbook playbooks/restituto.yml`
-7. ) Reboot Your system.
+2. ) Clone this repository anywhere You want.
+3. ) Navigate to repository folder.
+4. ) Run `sudo sh scripts/restituto.sh`
+5. ) Reboot Your system.
 
 Some applications required additional steps in order to complete full configuration:
 
