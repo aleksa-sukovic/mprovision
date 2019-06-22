@@ -5,11 +5,20 @@
     dest: "/usr/share/ansible/plugins/modules/aur"
     force: yes
 
+- name: Add AUR make dependencies
+  pacman:
+    name:
+      - make
+      - m4
+      - automake
+    state: latest
+    update_cache: yes
+
 - name: Add aur_builder user
   user:
     name: aur_builder
 
-- name: Allow aur_builder user to have not password
+- name: Allow aur_builder user to not have password
   lineinfile:
     path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
     state: present

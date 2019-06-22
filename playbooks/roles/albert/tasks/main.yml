@@ -1,13 +1,4 @@
 ---
-- name: Install dependencies
-  pacman:
-    name:
-        - qt5-x11extras
-        - qt5-charts
-        - qt5-svg
-        - gcc-libs
-        - libx11
-
 - name: Install
   aur:
     name: albert-lite
