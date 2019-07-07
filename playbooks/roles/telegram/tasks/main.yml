@@ -1,5 +1,5 @@
 ---
-name: Install
+- name: Install
   pacman:
     name: telegram-desktop
     state: latest
