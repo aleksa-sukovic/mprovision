@@ -1,5 +1,10 @@
 ---
 - name: Copy installation script
+  become: true
+  become_user: "{{ username }}"
   copy:
     src: scripts/vbox-setup.sh
     dest: ~/.config/vbox/
+    owner: "{{ username }}"
+    group: "{{ group }}"
+    mode: 0755

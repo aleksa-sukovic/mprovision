@@ -30,7 +30,6 @@
       roles:
         - ping
         - purge
-        - upgrade-system
         - default-apps
         - trizen
         - yay
@@ -47,7 +46,6 @@
         - albert
         - telegram
         - viber
-        - whatsie
         - slack
         - sublime
         - git

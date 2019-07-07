@@ -1,5 +1,5 @@
 ---
-- name: Install Calibre
+- name: Install
   pacman:
     name: calibre
     state: latest

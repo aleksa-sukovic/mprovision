@@ -12,6 +12,7 @@ if [ $(id -u) != 0 ]; then
 fi
 
 # Install ansible
+sudo pacman -Syu
 sudo pacman -S ansible
 
 # Provision

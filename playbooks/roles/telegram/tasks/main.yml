@@ -1,9 +1,9 @@
 ---
-- name: Install
-  aur:
-    name: telegram-desktop-bin
-  become: true
-  become_user: aur_builder
+name: Install
+  pacman:
+    name: telegram-desktop
+    state: latest
+    update_cache: yes
 
 - name: Copy desktop file
   copy:
