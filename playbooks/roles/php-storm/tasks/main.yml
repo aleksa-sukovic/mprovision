@@ -1,39 +1,9 @@
 ---
 - name: Install
-  aur:
+  snap:
     name: phpstorm
-  become: true
-  become_user: aur_builder
-
-- name: Install PHP Storm JRE
-  aur:
-    name: phpstorm-jre
-  become: true
-  become_user: aur_builder
-
-- name: Copy desktop file
-  template:
-    src: desktop/php-storm.desktop
-    dest: "/home/{{ username }}/.local/share/applications/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy dock item
-  template:
-    src: dock/php-storm.dockitem
-    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy icon
-  copy:
-    src: icons/php-storm.png
-    dest: "/home/{{ username }}/Documents/Dock/Icons/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
+    classic: yes
+    state: present
 
 - name: Copy config to import manually
   copy:

@@ -1,17 +1,9 @@
 ---
 - name: Install
-  aur:
-    name: slack-desktop
-  become: true
-  become_user: aur_builder
-
-- name: Copy desktop file
-  copy:
-    src: desktop/slack.desktop
-    dest: "/home/{{ username }}/.local/share/applications/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
+  snap:
+    name: slack
+    classic: yes
+    state: present
 
 - name: Copy dock item
   template:

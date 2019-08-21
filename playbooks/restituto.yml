@@ -28,43 +28,47 @@
           - 19    # user themes
           - 21    # workspace indicator
       roles:
-        - ping
-        - purge
-        - default-apps
-        - trizen
-        - yay
-        - calibre
-        - vlc
-        - blender
-        - qbittorrent
-        - fira-code
-        - vagrant
-        - gnome
-        - dotfiles
-        - todoist
-        - visual-studio-code
-        - albert
-        - telegram
-        - viber
-        - slack
-        - sublime
-        - git
-        - git-kraken
-        - draw-io
-        - dbeaver
-        - gravit-designer
-        - pcloud
-        - postman
-        - nativefier
-        - notion
-        - bitwarden
-        - docker
-        - php-storm
-        - intellij-community
-        - android-studio
-        - google-chrome
-        - spotify
-        - vysor
-        - virtual-box
-        - vmware
+        # - ping
+        # - purge
+        # - nfs
+        # - default-apps
+        # - trizen
+        # - yay
+        # - calibre
+        # - vlc
+        # - qbittorrent
+        # - fira-code
+        # - vagrant
+        # - gnome
+        # - dotfiles
+        # - snap
+        # - snap-store
+        # - slack
+        # - blender
+        # - todoist
+        # - visual-studio-code
+        # - albert
+        # - telegram
+        # - viber
+        # - sublime
+        # - git
+        # - git-kraken
+        # - draw-io
+        # - dbeaver
+        # - gravit-designer
+        # - pcloud
+        # - postman
+        # - nativefier
+        # - notion
+        # - bitwarden
+        # - instagraph
+        # - docker
+        # - php-storm
+        # - intellij-community
+        # - android-studio
+        # - google-chrome
+        # - spotify
+        # - vysor
+        # - virtual-box
+        # - vmware
         - plank

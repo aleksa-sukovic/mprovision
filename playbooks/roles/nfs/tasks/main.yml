@@ -1,0 +1,16 @@
+---
+- name: Install
+  pacman:
+    name: nfs-utils
+    state: latest
+    update_cache: yes
+
+- name: Update configuration
+  lineinfile:
+    path: /etc/nfs.conf
+    state: present
+    regexp: "{{ item }}"
+    line: "{{ item }}y"
+  with_items:
+    - vers3=
+    - udp=

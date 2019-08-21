@@ -1,25 +1,8 @@
 ---
 - name: Install
-  aur:
-    name: bitwarden-bin
-  become: true
-  become_user: aur_builder
-
-- name: Copy desktop file
-  template:
-    src: desktop/bitwarden.desktop
-    dest: "/home/{{ username }}/.local/share/applications/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy dock item
-  template:
-    src: dock/bitwarden.dockitem
-    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
+  snap:
+    name: bitwarden
+    state: present
 
 - name: Copy icon
   copy:

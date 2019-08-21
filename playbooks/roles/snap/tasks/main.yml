@@ -1,0 +1,24 @@
+---
+- name: Install
+  pacman:
+    name: snapd
+    state: latest
+    update_cache: yes
+
+- name: Start
+  become: true
+  become_user: root
+  command: systemctl start snapd.socket
+
+- name: Enable
+  become: true
+  become_user: root
+  command: systemctl enable snapd.socket
+
+- name: Enable classic support
+  file:
+    src: /var/lib/snapd/snap
+    dest: /snap
+    force: yes
+    state: link
+

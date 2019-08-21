@@ -1,33 +1,9 @@
 ---
 - name: Install
-  pacman:
-    name: intellij-idea-community-edition
-    state: latest
-    update_cache: yes
-
-- name: Copy desktop file
-  template:
-    src: desktop/intellij-community.desktop
-    dest: "/home/{{ username }}/.local/share/applications/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy dock item
-  template:
-    src: dock/intellij-community.dockitem
-    dest: "/home/{{ username }}/.config/plank/dock1/launchers/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy icon
-  copy:
-    src: icons/intellij-community.png
-    dest: "/home/{{ username }}/Documents/Dock/Icons/"
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
+  snap:
+    name: intellij-idea-community
+    classic: yes
+    state: present
 
 - name: Copy config to import manually
   copy:

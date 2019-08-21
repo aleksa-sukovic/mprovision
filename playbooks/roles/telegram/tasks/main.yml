@@ -1,22 +1,5 @@
 ---
 - name: Install
-  pacman:
+  snap:
     name: telegram-desktop
-    state: latest
-    update_cache: yes
-
-- name: Copy desktop file
-  copy:
-    src: desktop/telegram.desktop
-    dest: /home/{{ username }}/.local/share/applications/
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
-
-- name: Copy dock item
-  template:
-    src: dock/telegram.dockitem
-    dest: /home/{{ username }}/.config/plank/dock1/launchers/
-    mode: 0755
-    owner: "{{ username }}"
-    group: "{{ group }}"
+    state: present
