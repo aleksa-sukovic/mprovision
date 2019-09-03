@@ -1,0 +1,6 @@
+---
+- name: Install
+  pacman:
+    name: xprop
+    state: latest
+    update_cache: yes
