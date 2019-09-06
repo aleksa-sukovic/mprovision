@@ -1,6 +1,6 @@
 ---
 - name: Install
   pacman:
-    name: xprop
+    name: xorg-xprop
     state: latest
     update_cache: yes
